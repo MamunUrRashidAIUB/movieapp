@@ -1,5 +1,8 @@
+import { icons } from "@/constants/icons";
+import { images } from "@/constants/images";
 import { Tabs } from "expo-router";
 import React from "react";
+import { Image, ImageBackground, Text } from "react-native";
 
 const _layout = () => {
   return (
@@ -9,6 +12,15 @@ const _layout = () => {
         options={{
           title: "Home",
           headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <ImageBackground
+              source={images.highlight}
+              className="flex flex-row w-full flex-1 min-w-[112px] min-h-14 rounded-full overflow-hidden mt-4 justify-center items-center"
+            >
+              <Image source={icons.home}/>
+         <Text className="text-secondary text-base font-semibold ml-2"> Home</Text>
+            </ImageBackground>
+          ),
         }}
       />
       <Tabs.Screen

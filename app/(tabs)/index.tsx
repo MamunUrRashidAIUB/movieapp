@@ -6,4 +6,5 @@ export default function Index() {
       <Text className="text-5xl font-bold text-primary ">Welcome</Text>
     </View>
   );
+  
 }
