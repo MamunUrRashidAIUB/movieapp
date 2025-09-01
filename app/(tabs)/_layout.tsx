@@ -4,14 +4,14 @@ import { Tabs } from "expo-router";
 import React from "react";
 import { Image, ImageBackground, Text } from "react-native";
 
-const TabIcon=() => {
+const TabIcon=({focused,icon,title}:any) => {
   return (
      <ImageBackground
               source={images.highlight}
               className="flex flex-row w-full flex-1 min-w-[112px] min-h-14 rounded-full overflow-hidden mt-4 justify-center items-center"
             >
-              <Image source={icons.home}/>
-         <Text className="text-secondary text-base font-semibold ml-2"> Home</Text>
+              <Image source={icon}/>
+         <Text className="text-secondary text-base font-semibold ml-2">{title} </Text>
             </ImageBackground>
   )
 }
@@ -26,7 +26,10 @@ const _layout = () => {
           title: "Home",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon />
+            <TabIcon focused ={focused}
+             icon={icons.home}
+             title="Home"
+             />
           ),
         }}
       />
@@ -35,8 +38,11 @@ const _layout = () => {
         options={{
           title: "Search",
           headerShown: false,
-             tabBarIcon: ({ focused }) => (
-            <TabIcon />
+            tabBarIcon: ({ focused }) => (
+            <TabIcon focused ={focused}
+             icon={icons.search}
+             title="search"
+             />
           ),
         }}
       />
@@ -46,7 +52,10 @@ const _layout = () => {
           title: "Save",
           headerShown: false,
              tabBarIcon: ({ focused }) => (
-            <TabIcon />
+            <TabIcon focused ={focused}
+             icon={icons.save}
+             title="save"
+             />
           ),
         }}
       />
@@ -55,6 +64,12 @@ const _layout = () => {
         options={{
           title: "Profile",
           headerShown: false,
+            tabBarIcon: ({ focused }) => (
+            <TabIcon focused ={focused}
+             icon={icons.person}
+             title="profile"
+             />
+          ),
         }}
       />
     </Tabs>
