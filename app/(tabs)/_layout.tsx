@@ -5,10 +5,13 @@ import React from "react";
 import { Image, ImageBackground, Text } from "react-native";
 
 const TabIcon=({focused,icon,title}:any) => {
-  return (
+
+if(focused){
+
+ return (
      <ImageBackground
               source={images.highlight}
-              className="flex flex-row w-full flex-1 min-w-[112px] min-h-14 rounded-full overflow-hidden mt-4 justify-center items-center"
+              className="flex flex-row w-full flex-1 min-w-[112px] min-h-16 rounded-full overflow-hidden mt-4 justify-center items-center"
             >
               <Image source={icon}/>
          <Text className="text-secondary text-base font-semibold ml-2">{title} </Text>
@@ -16,10 +19,43 @@ const TabIcon=({focused,icon,title}:any) => {
   )
 }
 
+ return(
+  <Image source={icon}
+  tintColor="A8B5DB" className="size-5"/>
+)
+
+}
+
 
 const _layout = () => {
   return (
-    <Tabs>
+    <Tabs
+    screenOptions={{
+      tabBarShowLabel: false,
+     tabBarItemStyle:{
+      width:100,
+      height:100,
+      justifyContent:'center',
+      alignItems:'center',
+     },
+      tabBarStyle:{
+        backgroundColor:'#0f0d23',
+        position:'absolute',
+       borderRadius:50,
+       marginHorizontal:20,
+        height:52,
+        overflow:'hidden',
+        borderWidth:1,
+        marginBottom:36,
+
+        
+
+
+      }
+    }}
+
+
+    >
       <Tabs.Screen
         name="index"
         options={{
